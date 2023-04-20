@@ -1,1 +1,2 @@
-# Global_sky_mosaic
+# Global Sky Mosaic
+
