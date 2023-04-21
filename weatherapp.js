@@ -18,17 +18,28 @@ function getData() {
       console.error('Error fetching weather data:', error);
     });
 }
-
+function celsiusToFahrenheit(celsius) {
+  return (celsius * 9) / 5 + 32;
+}
 function displayWeatherData(data) {
-  const temp = data.current.temp_f;
+  const tempCelsius = data.current.temp_c;
+  const tempFahrenheit = data.current.temp_f;
   const description = data.current.condition.text;
   const city = data.location.name;
   const country = data.location.country;
 
+  let tempDisplay;
+
+  if (['US', 'BS', 'BZ', 'KY', 'PW'].includes(country)) {
+    tempDisplay = `${tempFahrenheit.toFixed(1)}°F`;
+  } else {
+    tempDisplay = `${tempCelsius.toFixed(1)}°C`;
+  }
+
   const weatherInfo = document.getElementById("weather-info");
   weatherInfo.innerHTML = `
     <h2>${city}, ${country}</h2>
-    <p>Temperature: ${temp}°F</p>
+    <p>Temperature: ${tempDisplay}</p>
     <p>Weather: ${description}</p>
   `;
 }
@@ -42,4 +53,5 @@ campusSelect.addEventListener("change", (event) => {
 
 // Fetch weather data for the initial campus
 getData();
+
 
