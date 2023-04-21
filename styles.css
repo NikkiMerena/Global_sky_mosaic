@@ -1,4 +1,15 @@
 body {
+    display: flex row;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
+    margin-right: 50%;
+    margin-left: 40%;
+    margin-top: 30%;
+    background: rgba(88, 88, 187, 0.47);
+}
+
+.campus-select {
+    position: relative;
 }
