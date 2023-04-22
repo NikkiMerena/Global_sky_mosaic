@@ -1,54 +1,98 @@
 body {
-    display: flex row;
-    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #00000063;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    margin-right: 50%;
-    margin-left: 40%;
-    margin-top: 30%;
-    background: rgba(88, 88, 187, 0.47);
+    background-image: url('images/Colombia.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-body h2 {
-    margin-right: 50%;
-    margin-left: 0%;
-    margin-top: 30%;
-    font-size: 30px;
-}
-
-body select:hover {
-    opacity: 0.9;
-}
-
-#campus-select {
+.custom-dropdown {
     position: relative;
-    width: 200%;
+    display: inline-block;
+}
+
+.custom-dropdown .selected {
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.custom-dropdown ul.options {
+    display: none;
+    left: 0;
+    right: 0;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+.custom-dropdown ul.options.show {
+    display: block;
+    position: absolute;
+    list-style: none;
+    background-color: #ffffff64;
     height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-dropdown ul.options li {
     padding: 10px;
-    font-size: 16px;
-    line-height: 1;
-    border: 0;
+    cursor: pointer;
+}
+
+.custom-dropdown ul.options li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.custom-dropdown:hover .selected {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#weather-info {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    color: #050000;
-    -webkit-appearance: none;
 }
 
-#campus-select select {
-    width: 10%;
-    height: 10%;
-    padding: 10px;
-    font-size: 16px;
-    line-height: 1;
-    border: 0;
-    border-radius: 0;
-    background: #0e53d4;
-    color: #fff;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+#weather-info h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
-#campus-select select option {
-    color: #050000;
+#weather-info p {
+    margin: 0;
+    margin-bottom: 4px;
+    display: flex;
+    
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #00000022; /* Use the same background color as the body, or any other color you prefer */
+}
+
+footer a img {
+    text-decoration: none !important;
+    color: #8f0b0b95 !important;
+}
+
+footer a:hover img {
+    opacity: 0.8;
 }
