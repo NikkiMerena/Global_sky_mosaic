@@ -10,6 +10,45 @@ body {
     background: rgba(88, 88, 187, 0.47);
 }
 
-.campus-select {
+body h2 {
+    margin-right: 50%;
+    margin-left: 0%;
+    margin-top: 30%;
+    font-size: 30px;
+}
+
+body select:hover {
+    opacity: 0.9;
+}
+
+#campus-select {
     position: relative;
+    width: 200%;
+    height: 100%;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 4px;
+    color: #050000;
+    -webkit-appearance: none;
+}
+
+#campus-select select {
+    width: 10%;
+    height: 10%;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    background: #0e53d4;
+    color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#campus-select select option {
+    color: #050000;
 }
