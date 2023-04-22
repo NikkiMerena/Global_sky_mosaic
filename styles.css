@@ -8,7 +8,6 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url('images/Colombia.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -76,7 +75,7 @@ body {
     margin: 0;
     margin-bottom: 4px;
     display: flex;
-    
+
 }
 
 footer {
@@ -85,7 +84,8 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    background-color: #00000022; /* Use the same background color as the body, or any other color you prefer */
+    background-color: #00000022;
+    /* Use the same background color as the body, or any other color you prefer */
 }
 
 footer a img {
