@@ -68,7 +68,7 @@ function displayWeatherData (data) {
 
   const weatherInfo = document.getElementById('weather-info');
   weatherInfo.innerHTML = `
-    <h2>${city}, ${countryName}</h2>
+    <h2>${city}, ${countryCode}</h2>
     <p>Temperature: ${tempDisplay}</p>
     <p>Weather: ${description}</p>
   `;
