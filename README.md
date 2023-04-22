@@ -14,7 +14,7 @@ You will need to have an API key from [WeatherAPI](https://www.weatherapi.com/) 
 
 1. Select a city from the drop-down list.
 2. The weather data for the selected city will be displayed below the drop-down list.
-3. Also a picture of the current campus will appear.
+3. Also a picture of the current campus will appear and the beauty of the campus!
 
 ## Contributors
 
