@@ -3,24 +3,24 @@ const API_KEY = 'f6fd5d5dc0d941209d8203319232004';
 
 function countryCodeToName (countryCode) {
   const countryCodes = {
-    AU: 'Australia',
-    CO: 'Colombia',
-    EC: 'Ecuador',
-    ES: 'Spain',
-    FR: 'France',
-    GT: 'Guatemala',
-    LB: 'Lebanon',
-    LS: 'Lesotho',
-    LY: 'Libya',
-    MU: 'Mauritius',
-    MX: 'Mexico',
-    PA: 'Panama',
-    PE: 'Peru',
-    PR: 'Puerto Rico',
-    TN: 'Tunisia',
-    UY: 'Uruguay',
-    ZA: 'South Africa',
-    US: 'United States'
+    au: 'Australia',
+    co: 'Colombia',
+    ec: 'Ecuador',
+    es: 'Spain',
+    fr: 'France',
+    gt: 'Guatemala',
+    lb: 'Lebanon',
+    ls: 'Lesotho',
+    ly: 'Libya',
+    mu: 'Mauritius',
+    mx: 'Mexico',
+    pa: 'Panama',
+    pe: 'Peru',
+    pr: 'Puerto Rico',
+    tn: 'Tunisia',
+    uy: 'Uruguay',
+    za: 'South Africa',
+    us: 'United States'
   };
 
   return countryCodes[countryCode] || countryCode;
@@ -52,6 +52,11 @@ function displayWeatherData (data) {
   const city = data.location.name;
   const countryName = countryCodeToName(data.location.country);
   const countryCode = data.location.country;
+
+  console.log('Country code:', countryCode);
+  // Add this line to log the country code
+  console.log('Temperature in Celsius:', tempCelsius);
+  console.log('Temperature in Fahrenheit:', tempFahrenheit);
 
   let tempDisplay;
 
