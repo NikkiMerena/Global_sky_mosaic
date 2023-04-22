@@ -83,3 +83,25 @@ campusSelect.addEventListener('change', (event) => {
 
 // Fetch weather data for the initial campus
 getData();
+
+//Function changes the background image based on which campus-select option is chosen
+//If image doesn't exist, it defaults to the Tulsa image currently (will change this to clouds)
+const select = document.querySelector('select#campus-select');
+const body = document.body;
+const defaultImage = 'images/Tulsa.png';
+
+select.addEventListener('change', function() {
+  const selectedCampus = select.value;
+  const imagePath = `images/${selectedCampus}.png`;
+  const imageExists = new Image();
+
+  imageExists.src = imagePath;
+
+  imageExists.onload = function() {
+    body.style.backgroundImage = `url('${imagePath}')`;
+  }
+
+  imageExists.onerror = function() {
+    body.style.backgroundImage = `url('${defaultImage}')`;
+  }
+});
