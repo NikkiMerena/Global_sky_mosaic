@@ -86,6 +86,12 @@ getData();
 
 //Function changes the background image based on which campus-select option is chosen
 //If image doesn't exist, it defaults to the Tulsa image currently (will change this to clouds)
+function setDefaultBackgroundImage() {
+  var body = document.querySelector('body');
+  var defaultImage = 'images/Tulsa.png';
+  body.style.backgroundImage = `url('${defaultImage}')`;
+}
+
 const select = document.querySelector('select#campus-select');
 const body = document.body;
 const defaultImage = 'images/Tulsa.png';
