@@ -88,7 +88,7 @@ getData();
 //If image doesn't exist, it defaults to the Tulsa image currently (will change this to clouds)
 function setDefaultBackgroundImage() {
   var body = document.querySelector('body');
-  var defaultImage = 'images/Tulsa.png';
+  var defaultImage = 'images/defaultTulsaHolb.png';
   body.style.backgroundImage = `url('${defaultImage}')`;
 }
 
