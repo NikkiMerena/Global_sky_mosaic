@@ -1,88 +1,98 @@
-// Path: Global_sky_mosaic/weatherapp.js
-const API_KEY = 'f6fd5d5dc0d941209d8203319232004';
+const apiKey = 'f6fd5d5dc0d941209d8203319232004';
+const timestamp = Date.now(); // Generate a timestamp
 
 function countryCodeToName (countryCode) {
   const countryCodes = {
-    au: 'Australia',
-    co: 'Colombia',
-    ec: 'Ecuador',
-    es: 'Spain',
-    fr: 'France',
-    gt: 'Guatemala',
-    lb: 'Lebanon',
-    ls: 'Lesotho',
-    ly: 'Libya',
-    mu: 'Mauritius',
-    mx: 'Mexico',
-    pa: 'Panama',
-    pe: 'Peru',
-    pr: 'Puerto Rico',
-    tn: 'Tunisia',
-    uy: 'Uruguay',
-    za: 'South Africa',
-    us: 'United States'
+    AU: 'Australia',
+    CO: 'Colombia',
+    EC: 'Ecuador',
+    ES: 'Spain',
+    FR: 'France',
+    GT: 'Guatemala',
+    LB: 'Lebanon',
+    LS: 'Lesotho',
+    LY: 'Libya',
+    MU: 'Mauritius',
+    MX: 'Mexico',
+    PA: 'Panama',
+    PE: 'Peru',
+    PR: 'Puerto Rico',
+    TN: 'Tunisia',
+    UY: 'Uruguay',
+    ZA: 'South Africa',
+    US: 'United States'
   };
 
   return countryCodes[countryCode] || countryCode;
 }
 
-function getData () {
-  const cityAndCountryCode = document.getElementById('campus-select').value;
-  const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cityAndCountryCode}&aqi=no`;
-
-  fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then((data) => {
-      displayWeatherData(data);
-    })
-    .catch((error) => {
-      console.error('Error fetching weather data:', error);
-    });
+async function getWeatherData(location, tempUnit) {
+  try {
+    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&${tempUnit}&custom_id=my_custom_id`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching weather data:', error);
+    throw error;
+  }
 }
 
-function displayWeatherData (data) {
-  const tempFahrenheit = data.current.temp_f;
-  const tempCelsius = data.current.temp_c;
-  const description = data.current.condition.text;
-  const city = data.location.name;
-  const countryName = countryCodeToName(data.location.country);
-  const countryCode = data.location.country;
 
-  console.log('Country code:', countryCode);
-  // Add this line to log the country code
-  console.log('Temperature in Celsius:', tempCelsius);
-  console.log('Temperature in Fahrenheit:', tempFahrenheit);
 
-  let tempDisplay;
-
-  if (['US', 'BS', 'BZ', 'KY', 'PW'].includes(countryCode)) {
-    tempDisplay = `${tempFahrenheit.toFixed(1)}°F`;
-  } else {
-    tempDisplay = `${tempCelsius.toFixed(1)}°C`;
-  }
-
+async function getData() {
+  const location = document.getElementById('campus-select').value;
+  const tempUnit = document.getElementById('temp-unit-select').value;
+  const weatherData = await getWeatherData(location, `units=${tempUnit}`);
   const weatherInfo = document.getElementById('weather-info');
+  const locationName = weatherData.location.name;
+  const countryName = weatherData.location.country;
+  const tempValue = tempUnit === 'C' ? weatherData.current.temp_c : weatherData.current.temp_f;
+  const tempUnitText = tempUnit === 'C' ? '°C' : '°F';
+  const weatherDescription = weatherData.current.condition.text;
+
   weatherInfo.innerHTML = `
-    <h2>${city}, ${countryCode}</h2>
-    <p>Temperature: ${tempDisplay}</p>
-    <p>Weather: ${description}</p>
+    <h2>${locationName}, ${countryName}</h2>
+    <p><strong>Temperature:</strong> ${tempValue}${tempUnitText}</p>
+    <p><strong>Description:</strong> ${weatherDescription}</p>
   `;
 }
 
-const campusSelect = document.getElementById('campus-select');
 
-// Fetch weather data when the selected campus changes
-campusSelect.addEventListener('change', (event) => {
-  getData();
-});
+async function updateWeather(location, tempUnit) {
+  const weatherData = await getWeatherData(location, `units=${tempUnit}`);
+  const weatherInfo = document.getElementById('weather-info');
+  const locationName = weatherData.location.name;
+  const countryName = weatherData.location.country;
+  const tempValue = weatherData.current[tempUnit.toLowerCase()];
+  const tempUnitText = tempUnit === 'C' ? '°C' : '°F';
+  const weatherDescription = weatherData.current.condition.text;
+
+  weatherInfo.innerHTML = `
+    <h2>${locationName}, ${countryName}</h2>
+    <p><strong>Temperature:</strong> ${tempValue}${tempUnitText}</p>
+    <p><strong>Description:</strong> ${weatherDescription}</p>
+  `;
+}
 
 // Fetch weather data for the initial campus
 getData();
+
+// Fetch weather data when the selected campus changes
+const campusSelect = document.getElementById('campus-select');
+campusSelect.addEventListener('change', () => {
+  getData();
+});
+
+// Toggle temperature units when the selected unit changes
+const tempUnitSelect = document.getElementById('temp-unit-select');
+tempUnitSelect.addEventListener('change', () => {
+  const location = document.getElementById('campus-select').value;
+  const tempUnit = tempUnitSelect.value;
+  updateWeather(location, tempUnit);
+});
 
 //Function changes the background image based on which campus-select option is chosen
 //If image doesn't exist, it defaults to the Tulsa image currently (will change this to clouds)
@@ -102,6 +112,8 @@ select.addEventListener('change', function() {
   const imageExists = new Image();
 
   imageExists.src = imagePath;
+
+  imageExists
 
   imageExists.onload = function() {
     body.style.backgroundImage = `url('${imagePath}')`;
