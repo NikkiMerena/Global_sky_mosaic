@@ -8,9 +8,18 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    background-image: url('images/defaultTulsaHolb.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.display {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 4%;
+    background-color: rgba(255, 255, 255, 0.774);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .custom-dropdown {
@@ -60,10 +69,7 @@ body {
 }
 
 #weather-info {
-    background-color: #ffffff;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
 }
 
 #weather-info h2 {
@@ -84,7 +90,7 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    background-color: #00000022;
+    background-color: #cccccc94;
     /* Use the same background color as the body, or any other color you prefer */
 }
 
