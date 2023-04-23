@@ -7,7 +7,7 @@ This is a weather app that displays the current weather information for various 
 You will need to have an API key from [WeatherAPI](https://www.weatherapi.com/) to use this application. You can sign up for a free account to get an API key.
 
 ## Installation
-
+?branch= [![Netlify Status](https://api.netlify.com/api/v1/badges/8b5d4186-9950-4bec-8489-ebbc3ca10b48/deploy-status)](https://app.netlify.com/sites/global-sky-mosaic/deploys)
 
 
 ## Usage
