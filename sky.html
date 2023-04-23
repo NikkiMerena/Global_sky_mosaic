@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image" href="/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <!-- Disable cache for development purposes -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
 
     <title>Global Sky Mosaic</title>
+    <script>
+        // Reload the page and clear the cache when the user presses the "F5" key
+        document.addEventListener("keydown", function(event) {
+          if (event.code === "F5") {
+            event.preventDefault();
+            location.reload(true);
+          }
+        });
+      </script>
 </head>
 <body>
     <div class="display">
@@ -19,7 +24,7 @@
         <select id="campus-select">
         <!--Available Campuses-->
             <optgroup label="Holberton Campuses">
-                <option value="" diabled selected hidden></option>
+                <option value="" disabled selected hidden></option>
                 <option value="Barranquilla">Barranquilla</option>
                 <option value="Beirut">Beirut</option>
                 <option value="Bogotá">Bogotá</option>
@@ -29,7 +34,7 @@
                 <option value="Guadalajara">Guadalajara</option>
                 <option value="Guatemala_City">Guatemala</option>
                 <option value="Johannesburg">Johannesburg</option>
-                <option value="Laval">Laval</option>
+                <option value="Laval, France">Laval</option>
                 <option value="Lille">Lille</option>
                 <option value="Lima">Lima</option>
                 <option value="Maseru">Maseru</option>
@@ -50,12 +55,19 @@
                 <option value="Tirana">Tirana</option>
                 <option value="Toulouse">Toulouse</option>
                 <option value="Tripoli">Tripoli</option>
-                <option value="Tulsa">Tulsa</option>
+                <option value="Tulsa, OK US">Tulsa</option>
                 <option value="Tunis">Tunis</option>
             </optgroup>
         </select>
         <div id="weather-info">
         <!--Weather data will be displayed here-->
+        <div class="header">
+            <label for="temp-unit-select">Select temperature unit:</label>
+            <select id="temp-unit-select">
+                    <option value="C">Celsius</option>
+                    <option value="F">Fahrenheit</option>
+            </select>
+        </div>
         </div>
     </div>
     <script src="weatherapp.js"></script>
