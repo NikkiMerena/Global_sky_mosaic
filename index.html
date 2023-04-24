@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <title>Global Sky Mosaic</title>
+    <script>
+        // Reload the page and clear the cache when the user presses the "F5" key
+        document.addEventListener("keydown", function(event) {
+          if (event.code === "F5") {
+            event.preventDefault();
+            location.reload(true);
+          }
+        });
+      </script>
+</head>
+<body>
+    <div class="display">
+    </select>
+    <div id="weather-info">
+    <!--Weather data will be displayed here-->
+    <div class="header">
+    <label for="temp-unit-select">Select temperature unit:</label>
+    <select id="temp-unit-select">
+        <option value="C">Celsius</option>
+        <option value="F">Fahrenheit</option>
+    </select>
+    </div>
+    </div>
+    <label for="campus-select">Select a campus:</label>
+    <select id="campus-select">
+    <!--Available Campuses-->
+    <optgroup label="Holberton Campuses">
+        <option value="" disabled selected hidden></option>
+        <option value="Barranquilla">Barranquilla</option>
+        <option value="Beirut">Beirut</option>
+        <option value="Bogotá">Bogotá</option>
+        <option value="Bordeaux">Bordeaux</option>
+        <option value="Cali">Cali</option>
+        <option value="Granada">Granada</option>
+        <option value="Guadalajara">Guadalajara</option>
+        <option value="Guatemala_City">Guatemala</option>
+        <option value="Johannesburg">Johannesburg</option>
+        <option value="Laval, France">Laval</option>
+        <option value="Lille">Lille</option>
+        <option value="Lima">Lima</option>
+        <option value="Maseru">Maseru</option>
+        <option value="Medellín">Medellín</option>
+        <option value="Melbourne">Melbourne</option>
+        <option value="Mérida">Mérida</option>
+        <option value="Mexico_City">Mexico City</option>
+        <option value="Miami">Miami</option>
+        <option value="Montevideo">Montevideo</option>
+        <option value="New_York_City">New York City</option>
+        <option value="PanamaCity">Panama City</option>
+        <option value="Paris">Paris</option>
+        <option value="Port_Louis">Port Louis</option>
+        <option value="Quito">Quito</option>
+        <option value="San_Juan">San Juan</option>
+        <option value="Sydney">Sydney</option>
+        <option value="Thonon-les-bains">Thonon-Les-Bains</option>
+        <option value="Tirana">Tirana</option>
+        <option value="Toulouse">Toulouse</option>
+        <option value="Tripoli">Tripoli</option>
+        <option value="Tulsa, OK US">Tulsa</option>
+        <option value="Tunis">Tunis</option>
+    </optgroup>
+</div>
+    </div>
+    <script src="weatherapp.js"></script>
+    <footer>Powered by <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0"></a></footer>
+</body>
+</html>
