@@ -1,6 +1,7 @@
 # Global Sky Mosaic
 
-This is a weather app that displays the current weather information for various Holberton campuses around the world. It fetches data from the [WeatherAPI](https://www.weatherapi.com/) and displays the temperature,weather description and for the selected campus and current picture of the campus. Our goal is to bring the beauty of the Holberton skies from the different campuses to bring a sense of community!
+This is a weather app that displays the current weather information for various Holberton campuses around the world. It fetches data from the [WeatherAPI](https://www.weatherapi.com/) and displays the temperature,
+weather description, and a picture of the selected campus. Our goal is to bring together the beauty of Holberton skies from the different campuses around the world!
 
 
 
@@ -13,7 +14,7 @@ Clone the repository to your local machine using the following command git clone
 5. Right-click on the sky.html file in the Visual Studio Code file explorer, and select "Open with Live Server" from the context menu.
 6. The website should automatically open in your default web browser with live reload enabled. Any changes you make to the code should be immediately reflected in the preview.
 
-Alternativly you can click the link provided!
+Alternatively you can click the link provided!
 https://nikkimerena.github.io/Global_sky_mosaic/
 
 
@@ -25,7 +26,7 @@ https://nikkimerena.github.io/Global_sky_mosaic/
 
 ## Contributors
 
-This project was created by Heather Hayes, Lidsey Lancaster and Nikki Alderman.
+This project was created by Heather Hayes, Lindsey Lancaster and Nikki Alderman.
 
 ## License
 

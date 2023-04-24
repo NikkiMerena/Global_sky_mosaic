@@ -8,6 +8,7 @@ function getData () {
 
   fetch(url)
     .then((response) => {
+      console.log(response);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -24,11 +25,15 @@ function getData () {
 function displayWeatherData (data) {
   const tempFahrenheit = data.current.temp_f;
   const tempCelsius = data.current.temp_c;
+  console.log(tempFahrenheit)
+  console.log(tempCelsius)
   const description = data.current.condition.text;
   const city = data.location.name;
   const countryName = data.location.country;
 
   let tempDisplay;
+  console.log(countryCode);
+  console.log(countryName);
 
   if (['United States of America', 'add other countries as needed'].includes(countryName)) {
     tempDisplay = `${tempFahrenheit.toFixed(1)}°F`;
@@ -52,7 +57,6 @@ campusSelect.addEventListener('change', (event) => {
 });
 
 // Fetch weather data for the initial campus
-getData();
 
 //Function changes the background image based on which campus-select option is chosen
 //If image doesn't exist, it defaults to the Tulsa image currently (will change this to clouds)
