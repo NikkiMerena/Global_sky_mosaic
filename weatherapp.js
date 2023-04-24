@@ -23,8 +23,9 @@ function countryCodeToName (countryCode) {
     ZA: 'South Africa',
     US: "United States"
   };
-
+console.log(countryCode);
   return countryCodes[countryCode] || countryCode;
+  console.log(countryCode);
 }
 
 function getData () {
