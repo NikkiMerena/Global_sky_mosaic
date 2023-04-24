@@ -2,31 +2,6 @@
 const API_KEY = 'f6fd5d5dc0d941209d8203319232004';
 const timestamp = Date.now(); // Generate a timestamp
 
-function countryCodeToName (countryCode) {
-  const countryCodes = {
-    AU: 'Australia',
-    CO: 'Colombia',
-    EC: 'Ecuador',
-    ES: 'Spain',
-    FR: 'France',
-    GT: 'Guatemala',
-    LB: 'Lebanon',
-    LS: 'Lesotho',
-    LY: 'Libya',
-    MU: 'Mauritius',
-    MX: 'Mexico',
-    PA: 'Panama',
-    PE: 'Peru',
-    PR: 'Puerto Rico',
-    TN: 'Tunisia',
-    UY: 'Uruguay',
-    ZA: 'South Africa',
-    US: 'United States'
-  };
-
-  return countryCodes[countryCode] || countryCode;
-}
-
 function getData () {
   const cityAndCountryCode = document.getElementById('campus-select').value;
   const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cityAndCountryCode}&aqi=no`;
@@ -51,12 +26,11 @@ function displayWeatherData (data) {
   const tempCelsius = data.current.temp_c;
   const description = data.current.condition.text;
   const city = data.location.name;
-  const countryName = countryCodeToName(data.location.country);
-  const countryCode = data.location.country;
+  const countryName = data.location.country;
 
   let tempDisplay;
 
-  if (['US', 'BS', 'BZ', 'KY', 'PW'].includes(countryCode)) {
+  if (['United States of America', 'add other countries as needed'].includes(countryName)) {
     tempDisplay = `${tempFahrenheit.toFixed(1)}°F`;
   } else {
     tempDisplay = `${tempCelsius.toFixed(1)}°C`;
