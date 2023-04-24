@@ -10,7 +10,7 @@ function countryCodeToName (countryCode) {
     ES: 'Spain',
     FR: 'France',
     GT: 'Guatemala',
-    LB: 'Lebanon',
+    LB: "Lebanon",
     LS: 'Lesotho',
     LY: 'Libya',
     MU: 'Mauritius',
@@ -21,7 +21,7 @@ function countryCodeToName (countryCode) {
     TN: 'Tunisia',
     UY: 'Uruguay',
     ZA: 'South Africa',
-    US: 'United States'
+    US: "United States"
   };
 
   return countryCodes[countryCode] || countryCode;
@@ -33,6 +33,7 @@ function getData () {
 
   fetch(url)
     .then((response) => {
+      console.log(response);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -49,6 +50,8 @@ function getData () {
 function displayWeatherData (data) {
   const tempFahrenheit = data.current.temp_f;
   const tempCelsius = data.current.temp_c;
+  console.log(tempFahrenheit)
+  console.log(tempCelsius)
   const description = data.current.condition.text;
   const city = data.location.name;
   const countryName = countryCodeToName(data.location.country);
@@ -78,7 +81,6 @@ campusSelect.addEventListener('change', (event) => {
 });
 
 // Fetch weather data for the initial campus
-getData();
 
 //Function changes the background image based on which campus-select option is chosen
 //If image doesn't exist, it defaults to the Tulsa image currently (will change this to clouds)
