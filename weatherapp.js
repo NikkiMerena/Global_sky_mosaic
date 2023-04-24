@@ -58,6 +58,8 @@ function displayWeatherData (data) {
   const countryCode = data.location.country;
 
   let tempDisplay;
+  console.log(countryCode);
+  console.log(countryName);
 
   if (['US', 'BS', 'BZ', 'KY', 'PW'].includes(countryCode)) {
     tempDisplay = `${tempFahrenheit.toFixed(1)}°F`;
