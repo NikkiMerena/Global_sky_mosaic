@@ -83,8 +83,6 @@ campusSelect.addEventListener('change', (event) => {
   getData();
 });
 
-// Fetch weather data for the initial campus
-
 //Function changes the background image based on which campus-select option is chosen
 //If image doesn't exist, it defaults to the Tulsa image currently (will change this to clouds)
 function setDefaultBackgroundImage() {
