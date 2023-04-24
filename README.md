@@ -1,6 +1,7 @@
 # Global Sky Mosaic
 
-This is a weather app that displays the current weather information for various Holberton campuses around the world. It fetches data from the [WeatherAPI](https://www.weatherapi.com/) and displays the temperature,weather description and for the selected campus and current picture of the campus. Our goal is to bring the beauty of the Holberton skies from the different campuses to bring a sense of community!
+This is a weather app that displays the current weather information for various Holberton campuses around the world. It fetches data from the [WeatherAPI](https://www.weatherapi.com/) and displays the temperature,
+weather description, and a picture of the selected campus. Our goal is to bring together the beauty of Holberton skies from the different campuses around the world!
 
 
 
